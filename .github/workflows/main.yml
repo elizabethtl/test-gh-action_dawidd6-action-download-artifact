@@ -26,6 +26,7 @@ jobs:
           workflow: main.yml
           name: echo-script
           path: ./downloaded-artifact
+          allow_forks: true
           search_artifacts: true
       
       - name: Make script executable
