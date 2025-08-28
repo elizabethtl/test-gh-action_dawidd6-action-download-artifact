@@ -20,7 +20,7 @@ jobs:
           RANDOM_NUMBER: ${{ steps.foo.outputs.random-number }}
                 
       - name: Download artifact
-        uses: dawidd6/action-download-artifact@v3
+        uses: dawidd6/action-download-artifact@v4
         with:
           repo: elizabethtl/artifact
           name: echo-script
