@@ -22,7 +22,7 @@ jobs:
       - name: Download artifact
         uses: dawidd6/action-download-artifact@v3
         with:
-          name: my-artifact
+          name: echo
           path: ./downloaded-artifact
           repo: elizabethtl/artifact
           search_artifacts: true
