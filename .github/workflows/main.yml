@@ -1,0 +1,34 @@
+name: My main test action
+run-name: My main test action
+
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - uses: actions/checkout@v4
+      - id: foo
+        uses: elizabethtl/hello-world-composite-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+
+      - run: echo random-number "$RANDOM_NUMBER"
+        shell: bash
+        env:
+          RANDOM_NUMBER: ${{ steps.foo.outputs.random-number }}
+                
+      - name: Download artifact
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          name: my-artifact
+          path: ./downloaded-artifact
+          repo: elizabethtl/artifact
+          search_artifacts: true
+      
+      - name: Make script executable
+        run: chmod +x ./downloaded-artifact/echo.sh
+
+      - name: Run script
+        run: ./downloaded-artifact/echo.sh
