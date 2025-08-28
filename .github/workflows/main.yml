@@ -23,6 +23,7 @@ jobs:
         uses: dawidd6/action-download-artifact@v4
         with:
           repo: elizabethtl/artifact
+          workflow: main.yml
           name: echo-script
           path: ./downloaded-artifact
           search_artifacts: true
