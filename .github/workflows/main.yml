@@ -22,9 +22,9 @@ jobs:
       - name: Download artifact
         uses: dawidd6/action-download-artifact@v3
         with:
-          path: ./downloaded-artifact
           repo: elizabethtl/artifact
           name: echo-script
+          path: ./downloaded-artifact
           search_artifacts: true
       
       - name: Make script executable
